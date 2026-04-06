@@ -1070,7 +1070,7 @@ void QmlMainWindow::render()
         };
         struct pl_render_params params = *render_params;
         params.frame_mixer = pl_find_filter_config("linear", PL_FILTER_FRAME_MIXING);
-        qcInfo(chiakiGui) << "Interpolation!";
+        qCInfo(chiakiGui) << "Interpolation!";
         if (!pl_render_image_mix(placebo_renderer, &frame_mix, &target_frame, &params))
             qCWarning(chiakiGui) << "Failed to render Placebo frame!";
     } else {
