@@ -180,6 +180,8 @@ private:
     bool quick_frame = false;
     bool quick_need_sync = false;
     std::atomic<bool> quick_need_render = {false};
+    VkPhysicalDeviceProperties vk_device_props = {};
+    VkPhysicalDeviceDriverProperties vk_device_driver_props = {};
     pl_options renderparams_opts = {};
     bool renderparams_changed = false;
 
@@ -196,7 +198,7 @@ private:
         PFN_vkDestroySurfaceKHR vkDestroySurfaceKHR;
         PFN_vkWaitSemaphores vkWaitSemaphores;
         PFN_vkGetPhysicalDeviceQueueFamilyProperties vkGetPhysicalDeviceQueueFamilyProperties;
-        PFN_vkGetPhysicalDeviceProperties vkGetPhysicalDeviceProperties;
+        PFN_vkGetPhysicalDeviceProperties2 vkGetPhysicalDeviceProperties2;
     } vk_funcs;
 
     friend class QmlBackend;
